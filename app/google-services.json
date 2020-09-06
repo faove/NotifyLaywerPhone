@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "123064446156",
+    "firebase_url": "https://notifylaywer.firebaseio.com",
+    "project_id": "notifylaywer",
+    "storage_bucket": "notifylaywer.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:123064446156:android:83c571965279ded4a9e669",
+        "android_client_info": {
+          "package_name": "com.notify.laywer"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "123064446156-p5to5jfh1ifuh6m53an7u2ihk4qu78ir.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.notify.laywer",
+            "certificate_hash": "40f5795757e0fdb52ecf6e7c7d436edd904e3c21"
+          }
+        },
+        {
+          "client_id": "123064446156-kdh7dveshqik415i76k1vlgb346gejbe.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCMkgGbj_l3kqlSrqlh-ghzFOnsQh_xT-M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "123064446156-kdh7dveshqik415i76k1vlgb346gejbe.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
