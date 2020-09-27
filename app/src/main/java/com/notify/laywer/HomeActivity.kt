@@ -1,20 +1,16 @@
 package com.notify.laywer
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.AbsListView
 import android.widget.ListView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
-import com.google.firebase.auth.FirebaseAuth
+import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.database.*
-import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_home.*
-import java.time.temporal.ValueRange
 
 
 enum class ProviderType{
@@ -51,7 +47,7 @@ class HomeActivity : AppCompatActivity() {
         }
 
         read_observer_button.setOnClickListener {
-            readObserverData()
+            //readObserverData()
         }
 
 
@@ -97,12 +93,13 @@ class HomeActivity : AppCompatActivity() {
     }
     fun readSingleData(){
 
-        val name = read_single_text.text.toString().trim()
+        //val name = read_single_text.text.toString().trim()
         //val ref = FirebaseDatabase.getInstance().getReference("notifylaywer")
-        val process_id = "2"//ref.push().key
+        val process_id = "3"//ref.push().key
         val client_id = "3"//ref.push().key
-        val date_start = "20/02/2020"
-        val date_end = "20/02/2021"
+        val date_start = "01/09/2020"
+        val date_end = "01/09/2020"
+
 
         //val proc = Process(process_id,client_id,name,date_start,date_end)
 /*
@@ -113,8 +110,23 @@ class HomeActivity : AppCompatActivity() {
      //   val user = User(name, email)
         val database = FirebaseDatabase.getInstance().reference
 
-        database.child("Process").child(process_id).setValue(client_id)
+        val user = Process(process_id,client_id,"EL JUICIO RÁPIDO",date_start,date_end)
 
+        database.child("Process").child(process_id).setValue(user)
+
+        //database.child("Process").child(process_id).setValue(client_id)
+        database.child("Proceso").addValueEventListener(object :ValueEventListener{
+            override fun onCancelled(error: DatabaseError) {
+                //Log.w(TAG, "loadPost:onCancelled", error.toException())
+            }
+
+            override fun onDataChange(datasnapshot: DataSnapshot) {
+                if (datasnapshot.exists()){
+                    //val post = datasnapshot.getValue<Post>()
+                }
+            }
+        }
+        )
         /*FirebaseDatabase.getInstance().reference
             .child("Process4")
             .child("5")
