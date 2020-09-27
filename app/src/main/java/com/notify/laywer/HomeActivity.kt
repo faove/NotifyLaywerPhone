@@ -95,8 +95,8 @@ class HomeActivity : AppCompatActivity() {
 
         //val name = read_single_text.text.toString().trim()
         //val ref = FirebaseDatabase.getInstance().getReference("notifylaywer")
-        val process_id = "3"//ref.push().key
-        val client_id = "3"//ref.push().key
+        val process_id = "4"//ref.push().key
+        val client_id = "4"//ref.push().key
         val date_start = "01/09/2020"
         val date_end = "01/09/2020"
 
@@ -110,9 +110,10 @@ class HomeActivity : AppCompatActivity() {
      //   val user = User(name, email)
         val database = FirebaseDatabase.getInstance().reference
 
-        val user = Process(process_id,client_id,"EL JUICIO RÁPIDO",date_start,date_end)
+        val user = Process(process_id,client_id,"LA SENTENCIA",date_start,date_end)
 
-        database.child("Process").child(process_id).setValue(user)
+        //database.child("Process").child(process_id).setValue(user)
+        database.child("Process").setValue(user)
 
         //database.child("Process").child(process_id).setValue(client_id)
         database.child("Proceso").addValueEventListener(object :ValueEventListener{
