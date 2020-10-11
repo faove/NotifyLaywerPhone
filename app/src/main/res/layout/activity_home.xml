@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".HomeActivity">
+
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -20,9 +21,14 @@
             android:layout_height="wrap_content"
             android:ems="10"/>
 
+        <Spinner
+            android:id="@+id/process_spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
         <Button
-            android:text="read_single"
-            android:id="@+id/read_single_button"
+            android:text="Siguiente"
+            android:id="@+id/next_to_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 

@@ -4,19 +4,19 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.ListView
-import android.widget.TextView
-import android.widget.Toast
+import android.view.View
+import android.widget.*
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.database.*
+import com.google.firebase.database.ktx.getValue
 import kotlinx.android.synthetic.main.activity_home.*
 
 
 enum class ProviderType{
     BASIC
 }
-
+private var readTextView: TextView? = null
 
 class HomeActivity : AppCompatActivity() {
 
@@ -33,6 +33,20 @@ class HomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
 
+
+        val spinner: Spinner = findViewById(R.id.process_spinner)
+        // Create an ArrayAdapter using the string array and a default spinner layout
+        ArrayAdapter.createFromResource(
+            this,
+            R.array.procesos,
+            android.R.layout.simple_spinner_item
+        ).also { adapter ->
+            // Specify the layout to use when the list of choices appears
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+            // Apply the adapter to the spinner
+            spinner.adapter = adapter
+        }
+
         // [START initialize_database_ref]
         //database = Firebase.database.reference
         // val database = FirebaseDatabase.getInstance()
@@ -42,7 +56,7 @@ class HomeActivity : AppCompatActivity() {
         //read_single_text = findViewById(R.id.read_single_textView)
 
 
-        read_single_button.setOnClickListener {
+        next_to_button.setOnClickListener {
             readSingleData()
         }
 
@@ -75,12 +89,21 @@ class HomeActivity : AppCompatActivity() {
         //homenotify(email ?: "", provider ?: "")
     }
 
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+    fun onNothingSelected(parent: AdapterView<*>?) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+        val text: String = parent?.getItemAtPosition(position).toString()
+
+        read_single_textView.text = text
+
+        fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.home_menu, menu)
         return true
     }
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+    fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when(item.itemId){
             R.id.Process -> {
                 startActivity(Intent(this,ProcessActivity::class.java))
@@ -91,12 +114,13 @@ class HomeActivity : AppCompatActivity() {
             }
         }
     }
+
     fun readSingleData(){
 
         //val name = read_single_text.text.toString().trim()
         //val ref = FirebaseDatabase.getInstance().getReference("notifylaywer")
-        val process_id = "4"//ref.push().key
-        val client_id = "4"//ref.push().key
+        val process_id = "PC03"//ref.push().key
+        val client_id = "3"//ref.push().key
         val date_start = "01/09/2020"
         val date_end = "01/09/2020"
 
@@ -110,20 +134,27 @@ class HomeActivity : AppCompatActivity() {
      //   val user = User(name, email)
         val database = FirebaseDatabase.getInstance().reference
 
-        val user = Process(process_id,client_id,"LA SENTENCIA",date_start,date_end)
+        val user = Process(process_id,client_id,"Homicidio",date_start,date_end)
 
         //database.child("Process").child(process_id).setValue(user)
-        database.child("Process").setValue(user)
+        database.child("Process").child(process_id).setValue(user)
 
         //database.child("Process").child(process_id).setValue(client_id)
-        database.child("Proceso").addValueEventListener(object :ValueEventListener{
+        database.child("Process").addValueEventListener(object :ValueEventListener{
             override fun onCancelled(error: DatabaseError) {
                 //Log.w(TAG, "loadPost:onCancelled", error.toException())
             }
 
             override fun onDataChange(datasnapshot: DataSnapshot) {
                 if (datasnapshot.exists()){
-                    //val post = datasnapshot.getValue<Post>()
+                    val proc = datasnapshot.getValue<Process>()
+                    //readTextView = findViewById(R.id.read_single_textView)
+                    //readTextView?.setText(R.string.)
+                    val textView = findViewById<TextView>(R.id.read_single_textView).apply {
+                        //text = proc?.client_id.toString()
+                        text = proc?.name.toString()
+                    }
+
                 }
             }
         }

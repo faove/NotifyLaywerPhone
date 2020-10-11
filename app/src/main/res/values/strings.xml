@@ -1,3 +1,56 @@
 <resources>
     <string name="app_name">NotifyLaywer</string>
+
+    <string-array name="procesos">
+        <item>Jurisdicción Civil</item>
+        <item>Jurisdicción Contencioso</item>
+        <item>Jurisdicción Penal</item>
+    </string-array>
+
+    <string-array name="fases">
+        <item>Procedimiento abreviado</item>
+        <item>Procedimiento contra reos ausentes</item>
+        <item>Procedimiento contra Senadores o Diputados</item>
+        <item>Procedimiento para la extradición</item>
+        <item>De extradición activa</item>
+        <item>Omisión del deber de socorro</item>
+        <item>Allanamiento de morada</item>
+        <item>Incendios forestales</item>
+        <item>Infidelidad en la custodia de documentos</item>
+        <item>Cohecho</item>
+        <item>Tráfico de influencias</item>
+        <item>Malversación de caudales públicos</item>
+        <item>Fraudes</item>
+        <item>Exacciones ilegales</item>
+        <item>Negociaciones prohibidas</item>
+        <item>Infidelidad en la custodia de presos</item>
+        <item>delitos cometidos por medio de imprenta</item>
+        <item>delitos de injuria y calumnia contra particulares</item>
+        <item>jurisdicción civil</item>
+        <item>Fraudes</item>
+    </string-array>
+
+    <string-array name="procedimientos">
+        <item>Procedimiento abreviado</item>
+        <item>Procedimiento contra reos ausentes</item>
+        <item>Procedimiento contra Senadores o Diputados</item>
+        <item>Procedimiento para la extradición</item>
+        <item>De extradición activa</item>
+        <item>Omisión del deber de socorro</item>
+        <item>Allanamiento de morada</item>
+        <item>Incendios forestales</item>
+        <item>Infidelidad en la custodia de documentos</item>
+        <item>Cohecho</item>
+        <item>Tráfico de influencias</item>
+        <item>Malversación de caudales públicos</item>
+        <item>Fraudes</item>
+        <item>Exacciones ilegales</item>
+        <item>Negociaciones prohibidas</item>
+        <item>Infidelidad en la custodia de presos</item>
+        <item>delitos cometidos por medio de imprenta</item>
+        <item>delitos de injuria y calumnia contra particulares</item>
+        <item>jurisdicción civil</item>
+        <item>Fraudes</item>
+    </string-array>
+
 </resources>
